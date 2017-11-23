@@ -1,0 +1,9 @@
+galaxy_info:
+  author: Mauricio Sánchez
+  description: PHP-FPM
+  company: Aplyca
+  issue_tracker_url: https://github.com/Aplyca/ansible-container-php/issues
+  license: MIT
+  min_ansible_container_version: 2
+  tags:
+    - php

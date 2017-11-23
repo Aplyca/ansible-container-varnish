@@ -1,0 +1,23 @@
+version: "2"
+settings:
+  project_name: container
+  conductor:
+    base: 'ubuntu:xenial'
+    roles_path:
+      - ../
+  vars_files:
+    - vars.yml
+services:
+  varnish:
+    container_name: varnish
+    hostname: varnish
+    from: "ubuntu"
+    roles:
+      - ContainerEnabler
+    working_dir: '/var/www'
+    expose:
+      - 80
+    command: ["varnish"]
+    entrypoint: ["docker-entrypoint"]
+    user: root
+registries: {}
