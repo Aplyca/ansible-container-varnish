@@ -1,0 +1,23 @@
+---
+- name: Prepare Alpine based container
+  apk:
+    name: sudo
+    update_cache: yes
+  when: ansible_os_family == 'Alpine'
+
+- name: Ensure requierd packages are present using apt
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    install_recommends: no
+  with_items:
+    - sudo
+    - libssl-dev
+  when: ansible_os_family == 'Debian'
+
+- name: Execute role
+  include_role:
+    name: Aplyca.Varnish
+
+- raw: "SUDO_FORCE_REMOVE=yes apt-get purge -y --auto-remove sudo libssl-dev language-pack-en-base"
+- raw: "rm -rf /var/lib/apt/lists/*"
