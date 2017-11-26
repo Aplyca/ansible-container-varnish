@@ -15,6 +15,16 @@
     - libssl-dev
   when: ansible_os_family == 'Debian'
 
+- name: Create Docker execution files
+  become: yes
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    mode: 0755
+  with_items:
+    - entrypoint
+    - start
+
 - name: Execute role
   include_role:
     name: Aplyca.Varnish

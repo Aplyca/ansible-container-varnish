@@ -1,0 +1,3 @@
+varnish:
+  port: 6081
+  vcl_dir: /etc/varnish

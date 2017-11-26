@@ -1,3 +1,1 @@
-varnish:
-  send_timeout: 600
-  storage: "malloc,2G"
+image: "ubuntu:trusty"

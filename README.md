@@ -1,2 +1,2 @@
-# ansible-container-php
-Build Docker image for PHP using Ansible container and Ansible roles
+# ansible-container-varnish
+Build Docker image for Varnish using Ansible Container and Ansible roles

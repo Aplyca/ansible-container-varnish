@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#VARNISH_OPTIONS="-f ${VARNISH_VCL_CONF}"
+
+#[[ -z "${VARNISH_LISTEN_PORT}" ]] || VARNISH_OPTIONS+=" -a ${VARNISH_LISTEN_ADDRESS}:${VARNISH_LISTEN_PORT}"
+#[[ -z "${VARNISH_ADMIN_LISTEN_PORT}" ]] || VARNISH_OPTIONS+=" -T ${VARNISH_ADMIN_LISTEN_ADDRESS}:${VARNISH_ADMIN_LISTEN_PORT}"
+#[[ -z "${VARNISH_TTL}" ]] || VARNISH_OPTIONS+=" -t ${VARNISH_TTL}"
+#[[ -z "${VARNISH_SECRET_FILE}" ]] || VARNISH_OPTIONS+=" -S ${VARNISH_SECRET_FILE}"
+#[[ -z "${VARNISH_STORAGE}" ]] || VARNISH_OPTIONS+=" -s ${VARNISH_STORAGE}"
+#[[ -z "${VARNISH_THREADS}" ]] || VARNISH_OPTIONS+="-w ${VARNISH_THREADS}"
+#[[ -z "${VARNISH_PARAMETERS}" ]] || VARNISH_OPTIONS+=" ${VARNISH_PARAMETERS}"
+
+#/usr/sbin/varnishd ${VARNISH_OPTIONS} -F
+
+#/usr/sbin/varnishd -f /et/varnish/default.vcl -F
+
+#/usr/sbin/varnishd -P /var/run/varnishd.pid -a :80 -T localhost:6082 -f /etc/varnish/default.vcl -S /etc/varnish/secret -p send_timeout=60 -p vcl_dir=/etc/varnish -s malloc,2G

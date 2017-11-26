@@ -2,7 +2,7 @@ version: "2"
 settings:
   project_name: container
   conductor:
-    base: 'ubuntu:xenial'
+    base: 'ubuntu:trusty'
     roles_path:
       - ../
   vars_files:
@@ -11,13 +11,16 @@ services:
   varnish:
     container_name: varnish
     hostname: varnish
-    from: "ubuntu"
+    from: "{{ image }}"
     roles:
       - ContainerEnabler
-    working_dir: '/var/www'
+    working_dir: '{{ varnish.vcl_dir }}'
     expose:
-      - 80
-    command: ["varnish"]
-    entrypoint: ["docker-entrypoint"]
+      - "{{ varnish.port }}"
+    entrypoint: ["entrypoint"]
+    #command: ["start"]
     user: root
+    environment:
+      - "VARNISH_LISTEN_PORT={{ varnish.port }}"
+      - "VARNISH_VCL_CONF={{ varnish.vcl_dir }}/default.vcl"
 registries: {}

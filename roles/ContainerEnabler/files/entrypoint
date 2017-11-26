@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -f /tmp/provision.sh ]; then
+  /tmp/provision.sh
+fi
+
+/usr/sbin/varnishd -P /var/run/varnishd.pid -a :80 -T localhost:6082 -f /etc/varnish/default.vcl -S /etc/varnish/secret -p send_timeout=60 -p vcl_dir=/etc/varnish -s malloc,2G -F
