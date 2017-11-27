@@ -18,7 +18,7 @@ services:
     expose:
       - "{{ varnish.port }}"
     entrypoint: ["entrypoint"]
-    #command: ["start"]
+    command: ["start"]
     user: root
     environment:
       - "VARNISH_LISTEN_PORT={{ varnish.port }}"
