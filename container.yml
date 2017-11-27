@@ -21,6 +21,5 @@ services:
     command: ["start"]
     user: root
     environment:
-      - "VARNISH_LISTEN_PORT={{ varnish.port }}"
       - "VARNISH_VCL_CONF={{ varnish.vcl_dir }}/default.vcl"
 registries: {}
